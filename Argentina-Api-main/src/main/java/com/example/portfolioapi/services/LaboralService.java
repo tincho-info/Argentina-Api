@@ -38,9 +38,6 @@ public class LaboralService {
         return expeRepo.save(laboral); // crea o actualiza
     }
     
-    //public void delete(long id){
-    //    expeRepo.deleteById(id);
-    //}
     public boolean delete(int id) {
         try {
             expeRepo.deleteById(id); 

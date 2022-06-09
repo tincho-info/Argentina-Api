@@ -15,10 +15,11 @@ public class SkillServices {
     @Autowired
     SkillRepo skillRepo;
 
-    public List<SkillModel> getAll(){
+    public List<SkillModel> getAll() {
         return (List<SkillModel>) skillRepo.findAll();
     }
-    public ResponseEntity< SkillModel> getById(int id) {
+
+    public ResponseEntity<SkillModel> getById(int id) {
 
         Optional<SkillModel> skill = skillRepo.findById(id);
 
@@ -28,20 +29,18 @@ public class SkillServices {
             return ResponseEntity.notFound().build();
         }
     }
-    public SkillModel save( SkillModel skill) {
+
+    public SkillModel save(SkillModel skill) {
         return skillRepo.save(skill); // crear o actualizar
     }
 
- //   public void delete(int id) {
- //       skillRepo.deleteById(id);
- //   }
- public boolean delete(int id) {
-    try {
-        skillRepo.deleteById(id);
-        return true;
-    } catch(Exception err){
-        return false;
+    public boolean delete(int id) {
+        try {
+            skillRepo.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
     }
-}
 
 }
